@@ -17,10 +17,20 @@ const GridContainer = styled.div`
   margin: 0 auto; // Centers the grid horizontally
 `
 
-const GridItem = styled.div`
+const GridItem = ({ color, onMouseDown, onMouseEnter, onMouseUp }) => (
+  <GridItemStyled
+    color={color}
+    onMouseDown={onMouseDown}
+    onMouseEnter={onMouseEnter}
+    onMouseUp={onMouseUp}
+  />
+)
+
+const GridItemStyled = styled.div`
   width: ${gridSize}px;
   height: ${gridSize}px;
-  background-color: ${({ color }) => color};
+  background-color: ${({ color }) =>
+    color === 'white' ? 'rgba(255, 255, 255, 0.1)' : color};
   cursor: pointer;
   border: 1px solid black;
 `
@@ -30,22 +40,38 @@ const Grid = ({ selectedState }) => {
     { length: numRows * numColumns },
     () => 'white'
   )
-
   const [grid, setGrid] = useState(initialGrid)
+  const [dragging, setDragging] = useState(false)
 
-  const handleClick = (index) => {
+  const changeColor = (index) => {
     const newGrid = [...grid]
     newGrid[index] = selectedState
     setGrid(newGrid)
   }
 
+  const handleMouseDown = (index) => {
+    setDragging(true)
+    changeColor(index)
+  }
+
+  const handleMouseEnter = (index) => {
+    if (dragging) {
+      changeColor(index)
+    }
+  }
+
+  const handleMouseUp = () => {
+    setDragging(false)
+  }
+
   return (
-    <GridContainer>
+    <GridContainer onMouseUp={handleMouseUp}>
       {grid.map((color, index) => (
         <GridItem
           key={index}
           color={color}
-          onClick={() => handleClick(index)}
+          onMouseDown={() => handleMouseDown(index)}
+          onMouseEnter={() => handleMouseEnter(index)}
         />
       ))}
     </GridContainer>
