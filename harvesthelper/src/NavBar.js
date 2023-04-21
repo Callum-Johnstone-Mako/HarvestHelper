@@ -50,7 +50,7 @@ const NavBar = ({ onSelectState }) => {
   return (
     <Nav>
       <Button onClick={() => onSelectState('white')}>Empty</Button>
-      <Button onClick={() => onSelectState('skyblue')}>Dig Hole</Button>
+      <Button onClick={() => onSelectState('dugHole')}>Dig Hole</Button>
 
       <div style={{ position: 'relative' }}>
         <Button onClick={handlePlantClick}>Plant Vegetable</Button>

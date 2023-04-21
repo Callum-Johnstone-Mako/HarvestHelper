@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
+// Import the dug hole image
+import dugHoleImage from './Dirt.webp'
+
 const gridSize = 50 // Change this value to adjust the grid size
 const numRows = 15
 const numColumns = 30
@@ -31,6 +34,15 @@ const GridItemStyled = styled.div`
   height: ${gridSize}px;
   background-color: ${({ color }) =>
     color === 'white' ? 'rgba(255, 255, 255, 0.1)' : color};
+  // Set the background-image property when the square is a dug hole
+  ${({ color }) =>
+    color === 'dugHole'
+      ? `
+        background-image: url(${dugHoleImage});
+        background-repeat: no-repeat;
+        background-size: cover;
+      `
+      : ''}
   cursor: pointer;
   border: 1px solid black;
 `
@@ -45,8 +57,16 @@ const Grid = ({ selectedState }) => {
 
   const changeColor = (index) => {
     const newGrid = [...grid]
-    newGrid[index] = selectedState
-    setGrid(newGrid)
+
+    // Check if the square has a dug hole before planting a vegetable
+    if (
+      newGrid[index] === 'dugHole' ||
+      selectedState === 'white' ||
+      selectedState === 'dugHole'
+    ) {
+      newGrid[index] = selectedState
+      setGrid(newGrid)
+    }
   }
 
   const handleMouseDown = (index) => {
