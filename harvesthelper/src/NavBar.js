@@ -28,16 +28,16 @@ const VegetableMenu = styled.div`
 `
 
 const vegetables = [
-  { name: 'Carrot', color: 'orange' },
-  { name: 'Lettuce', color: 'green' },
-  { name: 'Beet', color: 'red' },
+  { name: 'Carrot', color: 'carrot' },
+  { name: 'Lettuce', color: 'lettuce' },
+  { name: 'Beet', color: 'beet' },
   { name: 'Tomato', color: 'tomato' },
-  { name: 'Potato', color: 'saddlebrown' },
-  { name: 'Cucumber', color: 'mediumseagreen' },
-  { name: 'Eggplant', color: 'purple' },
-  { name: 'Radish', color: 'crimson' },
-  { name: 'Pumpkin', color: 'darkorange' },
-  { name: 'Corn', color: 'gold' },
+  { name: 'Potato', color: 'potato' },
+  { name: 'Cucumber', color: 'cucumber' },
+  { name: 'Eggplant', color: 'eggplant' },
+  { name: 'Radish', color: 'radish' },
+  { name: 'Pumpkin', color: 'pumpkin' },
+  { name: 'Corn', color: 'corn' },
 ]
 
 const NavBar = ({ onSelectState }) => {

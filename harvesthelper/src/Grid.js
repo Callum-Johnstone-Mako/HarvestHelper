@@ -1,8 +1,18 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-// Import the dug hole image
+// Import the dug hole and vegetable images
 import dugHoleImage from './Dirt.webp'
+import carrotImage from './carrot.jpg'
+import lettuceImage from './lettuce.jpg'
+import beetImage from './Beet.png'
+import tomatoImage from './Tomato.png'
+import potatoImage from './Potato.png'
+import cucumberImage from './cucumber.png'
+import eggplantImage from './Eggplant.png'
+import radishImage from './Radish.png'
+import pumpkinImage from './Pumpkin.png'
+import cornImage from './Corn.png'
 
 const gridSize = 50 // Change this value to adjust the grid size
 const numRows = 15
@@ -29,20 +39,50 @@ const GridItem = ({ color, onMouseDown, onMouseEnter, onMouseUp }) => (
   />
 )
 
+const backgroundImageForColor = (color) => {
+  switch (color) {
+    case 'dugHole':
+      return dugHoleImage
+    case 'carrot':
+      return carrotImage
+    case 'lettuce':
+      return lettuceImage
+    case 'beet':
+      return beetImage
+    case 'tomato':
+      return tomatoImage
+    case 'potato':
+      return potatoImage
+    case 'cucumber':
+      return cucumberImage
+    case 'eggplant':
+      return eggplantImage
+    case 'radish':
+      return radishImage
+    case 'pumpkin':
+      return pumpkinImage
+    case 'corn':
+      return cornImage
+    default:
+      return null
+  }
+}
+
 const GridItemStyled = styled.div`
   width: ${gridSize}px;
   height: ${gridSize}px;
   background-color: ${({ color }) =>
     color === 'white' ? 'rgba(255, 255, 255, 0.1)' : color};
-  // Set the background-image property when the square is a dug hole
-  ${({ color }) =>
-    color === 'dugHole'
+  ${({ color }) => {
+    const backgroundImage = backgroundImageForColor(color)
+    return backgroundImage
       ? `
-        background-image: url(${dugHoleImage});
-        background-repeat: no-repeat;
-        background-size: cover;
-      `
-      : ''}
+          background-image: url(${backgroundImage});
+          background-repeat: no-repeat;
+          background-size: cover;
+        `
+      : ''
+  }}
   cursor: pointer;
   border: 1px solid black;
 `
