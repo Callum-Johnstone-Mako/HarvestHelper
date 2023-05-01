@@ -4,7 +4,7 @@ import NavBar from './NavBar'
 import './App.css'
 
 // Import the background image
-import backgroundImage from './Grass.jpg'
+import backgroundImage from './Pictures/Grass.jpg'
 
 const App = () => {
   const [selectedState, setSelectedState] = useState('white')

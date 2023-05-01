@@ -2,17 +2,17 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 // Import the dug hole and vegetable images
-import dugHoleImage from './Dirt.webp'
-import carrotImage from './carrot.jpg'
-import lettuceImage from './lettuce.jpg'
-import beetImage from './Beet.png'
-import tomatoImage from './Tomato.png'
-import potatoImage from './Potato.png'
-import cucumberImage from './cucumber.png'
-import eggplantImage from './Eggplant.png'
-import radishImage from './Radish.png'
-import pumpkinImage from './Pumpkin.png'
-import cornImage from './Corn.png'
+import dugHoleImage from './Pictures/Dirt.webp'
+import carrotImage from './Pictures/carrot.jpg'
+import lettuceImage from './Pictures/lettuce.jpg'
+import beetImage from './Pictures/Beet.png'
+import tomatoImage from './Pictures/Tomato.png'
+import potatoImage from './Pictures/Potato.png'
+import cucumberImage from './Pictures/cucumber.png'
+import eggplantImage from './Pictures/Eggplant.png'
+import radishImage from './Pictures/Radish.png'
+import pumpkinImage from './Pictures/Pumpkin.png'
+import cornImage from './Pictures/Corn.png'
 
 const gridSize = 50 // Change this value to adjust the grid size
 const numRows = 15
